@@ -92,8 +92,13 @@ def slideUpdate(self, context):
        self.image and                 \
        self.image.filepath != "":
 
-        if self.use_custom_hash and self.image_hash != "":
-            image_hash = self.image_hash
+        if self.use_custom_hash:
+            if self.image_hash:
+                image_hash = self.image_hash
+            else:
+                return
+
+        # automatically calculate the hash
         else:
             image_hash = calculateHash(self.image.filepath)
 
@@ -112,6 +117,8 @@ def calculateHash(filepath):
     if match:
         start,end = match.span()
         return "%s%%0%dd%s" % (filepath[:start], end - start, filepath[end:])
+    else:
+        return ""
 
 
 def imageChanger(texture, image_slide, image_hash):
@@ -126,7 +133,10 @@ def imageChanger(texture, image_slide, image_hash):
         relative = False
 
     basedir = os.path.dirname(filepath)
-    filename = image_hash % image_slide
+    if image_hash:
+        filename = image_hash % image_slide
+    else:
+        filename = os.path.basename(filepath)
 
     filepath = os.path.join(basedir, filename)
 
@@ -168,7 +178,6 @@ def register():
 
     bpy.types.Texture.image_hash = StringProperty (
         name="Hash",
-        default="%03d.png",
         description="String formatting for the filename. Use python notation (e.g. \"img-%03d.png\" will be \"img-003.png\" or \"img-9999.png\")",
         update=slideUpdate)
 
@@ -186,6 +195,8 @@ def register():
 def unregister():
     del bpy.types.Texture.image_hash
     del bpy.types.Texture.image_slide
+    del bpy.types.Texture.image_animate
+    del bpy.types.Texture.use_custom_hash
     bpy.utils.unregister_module(__name__)
     unregister_callbacks()
 
