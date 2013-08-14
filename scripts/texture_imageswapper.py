@@ -20,7 +20,7 @@ bl_info = {
     "name": "Image Changer",
     "author": "Dalai Felinto (dfelinto)",
     "version": (1,0),
-    "blender": (2, 6, 6),
+    "blender": (2, 6, 8),
     "location": "Properties > Texture",
     "description": "Change your texture everyframe",
     "warning": "",
@@ -32,14 +32,13 @@ bl_info = {
 # Image Changer
 # (note: barely based in an old script, completely remodernized to Blender 2.5)
 #
-# last update: August 13, 2012
+# last update: August, 2013
 #
 # Dalai Felinto (dfelinto)
 # www.dalaifelinto.com
-# www.blendernetwork.org/member/dalai-felinto
+# www.blendernetwork.org/dalai-felinto
 #
 # Rio de Janeiro - Brasil
-# Vancouver - Canada
 # ########################################################
 
 import bpy
