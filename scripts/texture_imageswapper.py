@@ -112,6 +112,8 @@ def calculateHash(filepath):
        sequence of images'''
     import re
     pattern = re.compile('[0-9]+')
+
+    filepath = os.path.basename(filepath)
     match = re.search(pattern, filepath)
 
     if match:
