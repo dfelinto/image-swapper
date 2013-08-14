@@ -2,7 +2,7 @@ Image Swapper
 =============
 
 Addon for Blender to swap the image used in a texture in a way that you can animate it.
-This addon was originally developed for "Joana", a short project part of the Detail Library animation.
+This addon was originally developed for *Joana*, a short project part of the Detail Library animation.
 
 See some final shots of the project here:
 http://detaillibrarycommittee.org/2013/01/02/final-renders/
@@ -24,7 +24,8 @@ With this setup you can even use the Graph Editor to animate the slides, create 
 
 The **samples** folder contains examples of the addon being used. You need to install the addon in order to test the files.
 
-Credits
+Contact
 -------
-Dalai Felinto
-[www.dalaifelinto.com](http://www.dalaifelinto.com)
+**Dalai Felinto**
+* [www.dalaifelinto.com](http://www.dalaifelinto.com)
+* [blendernetwork.org/dalai-felinto](http://www.blendernetwork.org/dalai-felinto)
